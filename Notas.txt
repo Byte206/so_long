@@ -1,0 +1,19 @@
+So_long
+
+Se ejecuta junto al mapa
+
+en el .ber los 
+0 son espacios vacios
+1 paredes
+C colleccionables
+E exit
+P posicion inicial del jugador
+
+Main
+
+Chekeamos numero de arguemtnos,diferent de 2 = error
+verificamos archivo .ber del mapa
+veirficamos con un if que el archivo acabe en .ber,si no lo hace devolvemos error
+	if (len < (4 o 5) || ft_strcmp(map->filename + len - 4, ".ber") != 0)
+		error_filename();
+
