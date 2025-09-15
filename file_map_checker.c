@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   file_map_checker.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamorcil <gamorcil@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/15 12:53:35 by gamorcil          #+#    #+#             */
-/*   Updated: 2025/09/15 12:53:37 by gamorcil         ###   ########.fr       */
+/*   Created: 2025/09/15 13:35:36 by gamorcil          #+#    #+#             */
+/*   Updated: 2025/09/15 13:48:55 by gamorcil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+int file_and_map_checker(char *file)
 {
-	void  *mlx;
-	void  *mlx_win;
-	if (argc != 2 || file_and_map_checker(argv[1]) == 1) 
-	{
-		printf("Falta mapa o la extension del archivo no es .ber\n");
-		return (1);
-	}
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 800, 600, "so_long");
-	mlx_loop(mlx);
+    int len;
+    
+    len = ft_strlen(file);
+    if (len < 4 || ft_strncmp(file + len - 4, ".ber", 4) != 0)
+        return (1);
+    return (0);
 }
