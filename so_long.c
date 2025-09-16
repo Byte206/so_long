@@ -14,6 +14,8 @@
 
 int	main(int argc, char **argv)
 {
+    t_map   map;
+
 	void  *mlx;
 	void  *mlx_win;
 	if (argc != 2 || file_and_map_checker(argv[1]) == 1) 
@@ -21,7 +23,8 @@ int	main(int argc, char **argv)
 		printf("Falta mapa o la extension del archivo no es .ber\n");
 		return (1);
 	}
+    get_map_res(&map, argv[1]);
 	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 800, 600, "so_long");
+	mlx_win = mlx_new_window(mlx, map.x * 64, map.y * 64, "so_long");
 	mlx_loop(mlx);
 }

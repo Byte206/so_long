@@ -6,6 +6,7 @@ CC = gcc
 MLX_PATH = ./minilibx-linux
 LIBFT_PATH = ./libft
 LIBFT_SRC_PATH = ./libft/libft
+GNL_PATH = ./gnl
 
 # Librerías
 MLX_LIB = $(MLX_PATH)/libmlx.a
@@ -13,7 +14,7 @@ LIBFT_LIB = $(LIBFT_PATH)/libft.a
 MLX_FLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 # Archivos fuente
-SRCS = so_long.c file_map_checker.c
+SRCS = so_long.c file_map_checker.c map_res.c $(GNL_PATH)/get_next_line.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -22,7 +23,7 @@ $(NAME): $(OBJS) $(MLX_LIB) $(LIBFT_LIB)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT_LIB) $(MLX_FLAGS) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I$(MLX_PATH) -I$(LIBFT_PATH) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(MLX_PATH) -I$(LIBFT_PATH) -I$(GNL_PATH) -c $< -o $@
 
 $(MLX_LIB):
 	make -C $(MLX_PATH)

@@ -9,6 +9,14 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 
-int	file_and_map_checker(char *file);	
+typedef struct s_map
+{
+    int x;
+    int y;
 
+}   t_map;
+
+
+int	file_and_map_checker(char *file);	
+void    get_map_res(t_map   *map, char *file);
 #endif
